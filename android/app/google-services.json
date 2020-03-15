@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "779919461984",
+    "firebase_url": "https://netninja-fb9a7.firebaseio.com",
+    "project_id": "netninja-fb9a7",
+    "storage_bucket": "netninja-fb9a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779919461984:android:343c8c4cc09fc22cb8fd05",
+        "android_client_info": {
+          "package_name": "com.example.kindi.netninjafbcourseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779919461984-9tb7s2h8jdjmu1q084m2dc8m0afr5734.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kindi.netninjafbcourseapp",
+            "certificate_hash": "dd3c4fb528cd445193bbd3ad4fe57f328aac54bc"
+          }
+        },
+        {
+          "client_id": "779919461984-nhqgnpfacamnr1jtfrtdod2c6hitemar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn2yRirmoo3vV334KBKPzwsXVeN105aUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779919461984-nhqgnpfacamnr1jtfrtdod2c6hitemar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
