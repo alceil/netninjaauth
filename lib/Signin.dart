@@ -26,7 +26,8 @@ class _signinState extends State<signin> {
               }
             else
               {
-                print(result);
+                print('You are in kid');
+                print(result.uid);
               }
 
 
