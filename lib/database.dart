@@ -12,4 +12,9 @@ class DataBaseServices{
 
     });
   }
+  Stream<QuerySnapshot> get brews
+  {
+    return brewcollections.snapshots();
+
+  }
 }
