@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:netninjafbcourseapp/database.dart';
 import 'user.dart';
 
 class AuthServices
@@ -37,6 +38,7 @@ Future registerwithemailandpassword(String email,String password) async
   {
     AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
     FirebaseUser user=result.user;
+    await DataBaseServices(uid: user.uid).updateUserData('0', 'new crew biatch', 100);
     return _userfromfirebase(user);
 
   }
