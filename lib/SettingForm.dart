@@ -38,6 +38,9 @@ int _currentstrength;
             }).toList(),
             onChanged: (val) => setState(()=>_currentsugar=val),
           ),
+          Slider(
+            onChanged: (val)=>setState(()=>_currentstrength=val.round()),
+          ),
           SizedBox(height: 20,),
           RaisedButton(
             color: Colors.pink,
