@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:netninjafbcourseapp/brew.dart';
+import 'package:netninjafbcourseapp/user.dart';
 class DataBaseServices{
   final String uid;
   DataBaseServices({this.uid});
@@ -24,11 +25,21 @@ class DataBaseServices{
 
     }).toList();
 
-
+  }
+  UserData _userDatafromsnapshot(DocumentSnapshot snapshot)
+  {
+    return UserData(
+        uid: uid,
+        name: snapshot.data['name'],
+        sugar:snapshot.data['sugars'] ,
+      strength: snapshot.data['strength'],
+    );
+  }
+  Stream<UserData> get userdata{
+    return brewcollections.document(uid).snapshots().map(_userDatafromsnapshot);
   }
   Stream<List<Brew>> get brews
   {
     return brewcollections.snapshots().map(_brewlistfromsnapshots);
-
   }
 }
