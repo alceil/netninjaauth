@@ -15,6 +15,22 @@ Stream <User> get user
   return _auth.onAuthStateChanged.map(_userfromfirebase);
 
 }
+  Future signinwithemailandpassword(String email,String password) async
+  {
+    try
+    {
+      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user=result.user;
+      return _userfromfirebase(user);
+    }
+    catch(e)
+    {
+      print((e.toString()));
+      return null;
+
+    }
+  }
+
 Future registerwithemailandpassword(String email,String password) async
 {
   try

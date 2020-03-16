@@ -9,8 +9,11 @@ class signin extends StatefulWidget {
 
 class _signinState extends State<signin> {
   final  AuthServices _auth=AuthServices();
+  final _formkey=GlobalKey<FormState>();
   String email='';
   String pass='';
+  String error='';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +27,12 @@ class _signinState extends State<signin> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 12.0,horizontal: 30.0),
         child: Form(
+          key: _formkey,
           child: Column(
             children: <Widget>[
               SizedBox(height: 20,),
               TextFormField(
+                validator: (val)=>val.isEmpty?'Enter ur Email kid':null,
                 onChanged: (val)
                 {
                   setState(() {
@@ -37,6 +42,7 @@ class _signinState extends State<signin> {
               ),
               SizedBox(height: 20,),
               TextFormField(
+                validator: (val)=>val.length<6?'Enter a password + 6 digits':null,
                 obscureText: true,
                 onChanged: (val){
                   setState(() {
@@ -50,8 +56,16 @@ class _signinState extends State<signin> {
 
                 onPressed: () async
                 {
-                  print(email);
-                  print(pass);
+                  if(_formkey.currentState.validate())
+                  {
+                    dynamic result=await _auth.signinwithemailandpassword(email, pass);
+                    if(result==null)
+                    {
+                      setState(() {
+                        error='Please supply a vaild email';
+                      });
+                    }
+                  }
                 },
                 child:Text('Sign in') ,
 
