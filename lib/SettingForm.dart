@@ -39,6 +39,13 @@ int _currentstrength;
             onChanged: (val) => setState(()=>_currentsugar=val),
           ),
           Slider(
+            value: (_currentstrength??100).toDouble(),
+            min:100.0,
+            max: 900.0,
+            divisions: 8,
+            activeColor:  Colors.brown[_currentstrength??100],
+            inactiveColor:Colors.brown[_currentstrength??100],
+
             onChanged: (val)=>setState(()=>_currentstrength=val.round()),
           ),
           SizedBox(height: 20,),
