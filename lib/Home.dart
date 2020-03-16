@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:netninjafbcourseapp/SettingForm.dart';
 import 'package:netninjafbcourseapp/authservices.dart';
 import 'package:netninjafbcourseapp/brew.dart';
 import 'package:netninjafbcourseapp/database.dart';
@@ -13,12 +14,11 @@ class Home extends StatelessWidget {
       showModalBottomSheet(context: context, builder: (context){
         return Container(
         padding: EdgeInsets.symmetric(vertical:20.0,horizontal:60.0),
-          child: Text('Bottom Sheet'),
+          child: SettingsForm(),
         );
       });
     }
-
-          return StreamProvider<List<Brew>>.value(
+    return StreamProvider<List<Brew>>.value(
       value: DataBaseServices().brews,
       child: Scaffold(
         appBar:AppBar(
