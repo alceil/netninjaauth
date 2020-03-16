@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netninjafbcourseapp/Loader.dart';
 import 'package:netninjafbcourseapp/authservices.dart';
 import 'package:netninjafbcourseapp/constants.dart';
 class signin extends StatefulWidget {
@@ -14,10 +15,11 @@ class _signinState extends State<signin> {
   String email='';
   String pass='';
   String error='';
+  bool loading=false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading?Loader():Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown[100],
         title: Text('Sign in with brew crew'),
@@ -61,10 +63,15 @@ class _signinState extends State<signin> {
                 {
                   if(_formkey.currentState.validate())
                   {
+                    setState(() =>
+                    loading=true);
                     dynamic result=await _auth.signinwithemailandpassword(email, pass);
+
+
                     if(result==null)
                     {
                       setState(() {
+                        loading=false;
                         error='Please supply a vaild email';
                       });
                     }
