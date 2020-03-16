@@ -18,7 +18,8 @@ class Home extends StatelessWidget {
           elevation: 0.0,
           actions: <Widget>
           [
-            FlatButton.icon(onPressed: (){_auth.signout();}, icon: Icon(Icons.person), label:Text('Logout'))
+            FlatButton.icon(onPressed: (){_auth.signout();}, icon: Icon(Icons.person), label:Text('Logout')),
+            FlatButton.icon(onPressed: null, icon: Icons, label: null)
           ],
         ) ,
         body: BrewList(),
