@@ -1,3 +1,4 @@
+import 'package:netninjafbcourseapp/Loader.dart';
 import 'constants.dart';
 import 'package:flutter/material.dart';
 import 'package:netninjafbcourseapp/authservices.dart';
@@ -17,7 +18,7 @@ class _RegisterState extends State<Register> {
   bool loading=false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading?Loader(): Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown[100],
         title: Text('Sign up with brew crew'),
@@ -62,10 +63,13 @@ class _RegisterState extends State<Register> {
                   {
                     if(_formkey.currentState.validate())
                       {
+                        setState(() =>
+                        loading=true);
                         dynamic result=await _auth.registerwithemailandpassword(email, pass);
                         if(result==null)
                           {
                             setState(() {
+                              loading=false;
                               error='Please supply a vaild email';
                             });
                           }
