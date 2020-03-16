@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netninjafbcourseapp/authservices.dart';
+import 'package:netninjafbcourseapp/constants.dart';
 class signin extends StatefulWidget {
   final Function toggleview;
   signin({this.toggleview});
@@ -32,6 +33,7 @@ class _signinState extends State<signin> {
             children: <Widget>[
               SizedBox(height: 20,),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val)=>val.isEmpty?'Enter ur Email kid':null,
                 onChanged: (val)
                 {
@@ -42,6 +44,7 @@ class _signinState extends State<signin> {
               ),
               SizedBox(height: 20,),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val)=>val.length<6?'Enter a password + 6 digits':null,
                 obscureText: true,
                 onChanged: (val){
