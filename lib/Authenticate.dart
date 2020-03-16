@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netninjafbcourseapp/Register.dart';
 import 'package:netninjafbcourseapp/Signin.dart';
 class Authentication extends StatefulWidget {
   @override
@@ -6,10 +7,23 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
+  bool ShowSignin=true;
+  void ToggleView()
+  {
+    setState(() {
+      ShowSignin=!ShowSignin;
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: signin(),
-    );
+    if(ShowSignin)
+      {
+        return signin(toggleview: ToggleView,);
+      }
+    else
+      {
+        return Register(toggleview: ToggleView);
+      }
   }
 }

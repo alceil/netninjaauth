@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netninjafbcourseapp/authservices.dart';
 class signin extends StatefulWidget {
+  final Function toggleview;
+  signin({this.toggleview});
   @override
   _signinState createState() => _signinState();
 }
@@ -15,6 +17,9 @@ class _signinState extends State<signin> {
       appBar: AppBar(
         backgroundColor: Colors.brown[100],
         title: Text('Sign in with brew crew'),
+        actions: <Widget>[
+          FlatButton.icon(onPressed: (){widget.toggleview();}, icon: Icon(Icons.person), label: Text('Register'))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 12.0,horizontal: 30.0),
